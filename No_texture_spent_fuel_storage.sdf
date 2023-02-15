@@ -12724,6 +12724,11 @@
       <pose>12.5 12.5 0.5 0 -0 0</pose>
     </model>
 
+    <include>
+      <pose>0 0 8 0 1.5707 0</pose>
+      <uri>model://unit_camera</uri>
+    </include>
+
     <gui fullscreen='0'>
       <camera name='user_camera'>
         <pose>-13.7759 -0.199065 21.3001 0 0.722724 -0.061236</pose>
