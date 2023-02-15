@@ -1,0 +1,14 @@
+material snf/Diffuse
+{
+  receive_shadows off
+  technique
+  {
+    pass
+    {
+      texture_unit
+      {
+        texture texture_snf.png
+      }
+    }
+  }
+}
