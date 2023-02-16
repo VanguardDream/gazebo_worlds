@@ -16,13 +16,13 @@ def set_camera_state(x, y, z, theta, phi, psi):
     #default psi    (y) : 0
 
     state = ModelState()
-    state.model_name = 'camera'
+    state.model_name = 'unit_camera'
     state.pose.position.x = x
     state.pose.position.y = y
     state.pose.position.z = z
 
     _eul = np.array([theta, phi, psi])
-    _rot = Rot.from_euler('xyz', _eul, degrees=True)
+    _rot = Rot.from_euler('XYX', _eul, degrees=True)
 
     quat = _rot.as_quat()
 
@@ -62,11 +62,11 @@ if __name__ == "__main__":
     while not rospy.is_shutdown():
         d = radians(t)
         set_camera_state(x - 0.01 * np.sin(d), \
-                            y - 0.01 * np.sin(d), \
-                                z - 0.02 * np.sin(d), \
-                                    theta - 6 * np.sin(d), \
-                                        phi - 6 * np.sin(d), \
-                                            psi - 6 * np.sin(d)
+                            y - 0.01 * np.sin(d * 0.8), \
+                                z - 0.02 * np.sin(d * 1.2), \
+                                    theta - 6 * np.sin(d*0.3), \
+                                        phi - 6 * np.sin(d*0.5), \
+                                            psi - 6 * np.sin(d*0.2)
                                             )
-        t = t + 5
+        t = t + 1
         rate.sleep()
